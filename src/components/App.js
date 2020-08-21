@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-
+import axios from 'axios'
 import './App.css';
 
 import Header from './Header/Header';
 import Compose from './Compose/Compose';
+
+const baseUrl = 'https://practiceapi.devmountain.com/api'
+
 
 class App extends Component {
   constructor() {
@@ -19,6 +22,11 @@ class App extends Component {
   }
   
   componentDidMount() {
+    axios.get(`${baseUrl}/posts`).then((res) => {
+      this.setState({
+        
+      })
+    })
 
   }
 
