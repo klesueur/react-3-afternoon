@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import './App.css';
-
+import Post from './Post/Post';
 import Header from './Header/Header';
 import Compose from './Compose/Compose';
 // import {ToastContainer, toast} from 'react-toastify'
@@ -24,7 +24,7 @@ class App extends Component {
   componentDidMount() {
     axios.get(`${baseUrl}/posts`).then(
       results => {
-        console.log(results)
+        // console.log(results)
         this.setState({
           posts: results.data
         })
@@ -45,7 +45,12 @@ class App extends Component {
 
   render() {
     const { posts } = this.state;
-
+    const renderedPosts = posts.map(element => {
+      return <Post 
+      key={posts.id} 
+      text={posts.text} 
+      date={posts.date} />
+    })
     return (
       <div className="App__parent">
         <Header />
@@ -53,7 +58,7 @@ class App extends Component {
         <section className="App__content">
 
           <Compose />
-          
+          {renderedPosts}
         </section>
       </div>
     );
