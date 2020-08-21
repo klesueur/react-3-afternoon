@@ -4,7 +4,7 @@ import './App.css';
 
 import Header from './Header/Header';
 import Compose from './Compose/Compose';
-
+// import {ToastContainer, toast} from 'react-toastify'
 const baseUrl = 'https://practiceapi.devmountain.com/api'
 
 
@@ -22,16 +22,17 @@ class App extends Component {
   }
   
   componentDidMount() {
-    axios.get(`${baseUrl}/posts`).then((res) => {
-      this.setState({
-        
+    axios.get(`${baseUrl}/posts`).then(
+      results => {
+        console.log(results)
+        this.setState({
+          posts: results.data
+        })
       })
-    })
-
-  }
+    }
 
   updatePost() {
-  
+    
   }
 
   deletePost() {
