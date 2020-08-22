@@ -336,7 +336,7 @@ updatePost( id, text ) {
 }
 ```
 
-Now that our method is constructed, all we need to do is pass it down into the `component` that needs it. In the `render` method, let's update the `map` to include a new `prop` called `updatePostFn` that equals the `updatePost` method. We'll also add a new `prop` called `id` that equals the `post`'d `id`. 
+Now that our method is constructed, all we need to do is pass it down into the `component` that needs it. In the `render` method, let's update the `map` to include a new `prop` called `updatePostFn` that equals the `updatePost` method. We'll also add a new `prop` called `id` that equals the `post`s `id`. 
 
 ```js
 {

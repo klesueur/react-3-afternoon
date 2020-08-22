@@ -31,8 +31,11 @@ class App extends Component {
       })
     }
 
-  updatePost() {
-    
+  updatePost(id, text) {
+    axios.put(`${baseUrl}/posts?id=${id}`, {text} )
+    .then(results => {
+      this.setState({ posts: results.data })
+    })
   }
 
   deletePost() {
@@ -46,10 +49,11 @@ class App extends Component {
   render() {
     const { posts } = this.state;
     const renderedPosts = posts.map(element => {
-      return <Post 
-      key={posts.id} 
-      text={posts.text} 
-      date={posts.date} />
+      return <Post key={posts.id} 
+                  text={posts.text} 
+                  date={posts.date} 
+                  id={posts.id}
+                  updatedPostFn={this.updatePost} />
     })
     return (
       <div className="App__parent">
