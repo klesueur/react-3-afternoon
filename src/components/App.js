@@ -45,8 +45,11 @@ class App extends Component {
     })
   }
 
-  createPost() {
-
+  createPost(text) {
+    axios.post(`${baseUrl}/posts`, {text})
+    .then( results => {
+      this.setState({ posts: results.data })
+    })
   }
 
   render() {
@@ -65,7 +68,7 @@ class App extends Component {
 
         <section className="App__content">
 
-          <Compose />
+          <Compose createPostFn={this.createPost} />
           {renderedPosts}
         </section>
       </div>
