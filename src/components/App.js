@@ -38,8 +38,11 @@ class App extends Component {
     })
   }
 
-  deletePost() {
-
+  deletePost(id) {
+    axios.delete(`${baseUrl}/posts?id=${id}`)
+    .then( results => {
+      this.setState({ posts: results.data })
+    })
   }
 
   createPost() {
@@ -53,7 +56,8 @@ class App extends Component {
                   text={posts.text} 
                   date={posts.date} 
                   id={posts.id}
-                  updatedPostFn={this.updatePost} />
+                  updatedPostFn={this.updatePost} 
+                  deletePostFn={this.deletePost} />
     })
     return (
       <div className="App__parent">
