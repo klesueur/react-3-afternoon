@@ -54,25 +54,22 @@ class App extends Component {
 
   render() {
     const { posts } = this.state;
-    const renderedPosts = posts.map(element => {
-      return <Post key={posts.id} 
-                  text={posts.text} 
-                  date={posts.date} 
-                  id={posts.id}
-                  updatedPostFn={this.updatePost} 
-                  deletePostFn={this.deletePost} />
-    })
+    
     return (
       <div className="App__parent">
         <Header />
 
         <section className="App__content">
 
-          <Compose createPostFn={this.createPost} />
-          {renderedPosts}
+          <Compose />
+
+          {posts.map(post => (
+            <Post key={post.id} />
+          ))}
+
         </section>
       </div>
-    );
+    )
   }
 }
 
