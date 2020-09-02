@@ -63,13 +63,14 @@ class App extends Component {
 
           <Compose />
 
-          {posts.map(post => (
+          { posts.map(post => (
             <Post 
               key={post.id} 
               text={post.text}
               date={post.date}
               id={post.id}
-              updatePostFn={this.updatePost} />
+              updatePostFn={this.updatePost} 
+              deletePostFn={this.deletePost} />
           ))}
 
         </section>
