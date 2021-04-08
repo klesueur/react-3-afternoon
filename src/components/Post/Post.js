@@ -1,4 +1,4 @@
-mport React, { Component } from 'react';
+import React, { Component } from 'react';
 import ProfileIcon from 'react-icons/lib/md/person-outline';
 import ReplyIcon from 'react-icons/lib/md/chat-bubble-outline';
 import FavoriteIcon from 'react-icons/lib/md/favorite-outline';
@@ -9,7 +9,7 @@ import './Post.css';
 
 import Edit from './Edit/Edit';
 
-//////////////////////////////////////////////////////// THIS COMPONENT IS BEING RENDERED IN THE *APP* COMPONENT
+// THIS COMPONENT IS BEING RENDERED IN THE *APP* COMPONENT
 
 export default class Post extends Component {
   constructor() {
