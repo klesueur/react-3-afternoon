@@ -44,6 +44,7 @@ class App extends Component {
 
   render() {
     const { posts } = this.state;
+    console.log('posts', posts)
 
     return (
       <div className="App__parent">
@@ -52,7 +53,15 @@ class App extends Component {
         <section className="App__content">
 
           <Compose />
-          
+
+          {posts.map(post => (
+            <Post
+              key={post.id}
+              text={post.text}
+              creationDate={post.date}
+            />
+          ))}
+
         </section>
       </div>
     );
