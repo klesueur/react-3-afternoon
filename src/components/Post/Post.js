@@ -10,8 +10,7 @@ import './Post.css';
 import Edit from './Edit/Edit';
 
 // THIS COMPONENT IS BEING RENDERED IN THE *APP* COMPONENT
-
-export default class Post extends Component {
+class Post extends Component {
   constructor(props) {
     super(props);
 
@@ -54,6 +53,7 @@ export default class Post extends Component {
       // const editing = this.state.editing
       // const showMasterMenu = this.state.showMasterMenu
     const { editing, showMasterMenu } = this.state;
+    const { text, creationDate } = this.props;
 
     return (
       // Main body of post
@@ -79,7 +79,7 @@ export default class Post extends Component {
           <span className="Post__name">DevMountain</span>
           <span className="Post__handle">@DevMountain</span>
 
-          <span className="Post__date"> - {this.props.creationDate} </span>
+          <span className="Post__date"> - { creationDate } </span>
         </div>
 
         {/* This is where the text goes. Notice the turnary statement. The turnary statement decides to display either the text OR the editor view
@@ -99,7 +99,7 @@ export default class Post extends Component {
                     hideEdit={ this.hideEdit } />
             :
               <span className="Post__text">
-                {this.props.text}
+                { text }
               </span>
           }
         </div>
@@ -115,3 +115,5 @@ export default class Post extends Component {
     )
   }
 }
+
+export default Post;
