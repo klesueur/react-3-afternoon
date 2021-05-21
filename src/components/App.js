@@ -23,16 +23,17 @@ class App extends Component {
   
   componentDidMount() {
 
-    axios.get(`https://${baseURL}/posts`)
-      .then(response => {
+    axios.get(`https://${baseURL}/posts`).then(response => {
         this.setState({ posts: response.data })
       }).catch(error => console.log('ERROR RETREIVING POSTS', error))
 
   };
 
-  updatePost() {
-  
-  }
+  updatePost(id, text) {
+    axios.put(`https://${baseURL}/posts?id=${id}`, {text}).then(response => {
+      this.setState({ posts: response.data })
+    })
+  };
 
   deletePost() {
 
@@ -59,6 +60,8 @@ class App extends Component {
               key={post.id}
               text={post.text}
               creationDate={post.date}
+              updatePostFn={this.updatePost}
+              id={post.id}
             />
           ))}
 
