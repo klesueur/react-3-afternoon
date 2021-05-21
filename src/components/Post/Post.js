@@ -98,8 +98,9 @@ class Post extends Component {
               <Edit
                 text=""
                 hideEdit={ this.hideEdit }
-                updatePostFn={updatePostFn}
+                updatePostFn={this.props.updatePostFn}
                 id={id}
+                text={text}
               />
             :
               <span className="Post__text">

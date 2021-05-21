@@ -13,15 +13,16 @@ export default class Edit extends Component {
     };
 
     this.updatePost = this.updatePost.bind( this );
-  }
+  };
 
   updateText( value ) {
     this.setState({ text: value });
-  }
+  };
 
   updatePost() {
-
-  }
+    this.props.updatePostFn(this.props.id, this.state.text);
+    this.props.hideEdit()
+  };
 
   render() {
     // More destructuring!
@@ -53,4 +54,4 @@ export default class Edit extends Component {
       </section>
     )
   }
-}
+};
